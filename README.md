@@ -6,8 +6,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
 ## About USSD Buy Portal - Interview Task
-- A simple CRUD Application for adding numbers and whitelisting/blacklisting them.
+
+-   A simple CRUD Application for adding numbers and whitelisting/blacklisting them.
 
 ## About Laravel
 
