@@ -19,17 +19,20 @@
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Numbers
                                             </th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Status</span>
+                                            <th scope="col" class="relative px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
                                             </th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
+                                            <th scope="col" class="relative px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
                                             </th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Blacklist</span>
+                                            <th scope="col" class="relative px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Edit
                                             </th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Deletes</span>
+                                            <th scope="col" class="relative px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Blacklist
+                                            </th>
+                                            <th scope="col" class="relative px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Delete
                                             </th>
                                         </tr>
                                         </thead>
@@ -39,22 +42,27 @@
                                       
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ $contact->contact_name }}
+                                                {{ $contact->contact_number }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('contact.edit', $contact) }}" class="text-indigo-600 hover:text-indigo-900">Status</a>
+                                                <a href="{{ route('contact.edit', $contact) }}" class="text-indigo-600 hover:text-indigo-900">{{ $contact->is_whitelisted === 1 ? "Whitelisted" :"Blacklisted"}}</a>
+                                            </td>
+
+
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ $contact->created_at }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('contact.edit', $contact) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <a href="{{ route('contact.edit', $contact) }}" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('contact.blacklist', $contact) }}" class="text-indigo-600 hover:text-indigo-900">Blacklist</a>
+                                                <a href="{{ route('contact.blacklist', $contact) }}" class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Blacklist</a>
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('contact.delete', $contact) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                                <a href="{{ route('contact.delete', $contact) }}" class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

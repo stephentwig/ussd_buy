@@ -13,18 +13,20 @@
                    
                     <br>
                     <br>
-                    <form action="{{ route('profile.update') }}" method="post">
+                    <form action="{{ route('contact.update', $contact->id) }}" method="post">
+                        @method('PUT')
                         @csrf
                         <label for="contact_number">Number:</label>
-                        <input type="text" name="contact_number" placeholder="Enter Phone Number">
+                        <input type="text" name="contact_number" placeholder="Enter Phone Number" value="{{$contact->contact_number}}">
                         <br>
                         <br>
                         <label for="is_whitelisted">Status:</label>
                         
 
                         <select name="is_whitelisted" id="">
-                            <option value="1">Whitelist</option>
-                            <option value="0">Blacklist</option>
+                             <option selected value="{{$contact->is_whitelisted}}">{{ $contact->is_whitelisted === 1 ? "Whitelisted":"Blacklisted" }} </option>
+                            <option value="1">Whitelisted</option>
+                            <option value="0">Blacklisted</option>
                         </select>
                         <br>
                         <br>

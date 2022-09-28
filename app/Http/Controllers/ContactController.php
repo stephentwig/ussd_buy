@@ -57,10 +57,8 @@ class ContactController extends Controller
 
         $contact->save();
 
-        return response()->json([
-            "message" => "customer nubmer added.",
-            "data" => $contact
-        ], 201);
+        
+        return redirect()->route('contact.list.view');
     }
 
     /**
@@ -87,9 +85,11 @@ class ContactController extends Controller
      */
     public function edit(Request $request, $id)
     {
+
+        $contact = Contact::find($id);
         //$contacts = Contact::paginate();
 
-        return view('editcontact', compact('contacts'));
+        return view('editcontact', compact('contact'));
     }
 
     /**
@@ -113,10 +113,8 @@ class ContactController extends Controller
 
             $contact->save();
 
-            return response()->json([
-                "message" => "customer number records updated successfully.",
-                "data" => $contact
-            ], 200);
+            return redirect()->route('contact.list.view');
+
         } else {
             return response()->json([
                 "message" => "customer contact not found."
@@ -137,9 +135,7 @@ class ContactController extends Controller
             $contact = Contact::find($id);
             $contact->delete();
 
-            return response()->json([
-                "message" => "records deleted."
-            ], 202);
+            return redirect()->route('contact.list.view');
         } else {
 
             return response()->json([
@@ -185,9 +181,8 @@ class ContactController extends Controller
 
             $contact->save();
 
-            return response()->json([
-                "message" => "customer number blacklisted."
-            ], 200);
+            return redirect()->route('contact.list.view');
+
         } else {
             return response()->json([
                 "message" => "customer contact not found."
