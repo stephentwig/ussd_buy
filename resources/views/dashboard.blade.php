@@ -14,20 +14,21 @@
                     <br>
                     <br>
                     <form action="{{ route('contact.store') }}" method="post">
+                    @csrf
                         <label for="">Number:</label>
-                        <input type="text" placeholder="Enter Phone Number">
+                        <input type="text" name="contact_number" placeholder="Enter Phone Number">
                         <br>
                         <br>
                         <label for="">Status:</label>
                         
 
-                        <select name="" id="">
+                        <select name="is_whitelisted" id="">
                             <option value="1">Whitelist</option>
                             <option value="0">Blacklist</option>
                         </select>
                         <br>
                         <br>
-                        <input type="submit" value="Save Number">
+                        <input type="submit" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="Save Number">
                     </form>
                 </div>
             </div>
