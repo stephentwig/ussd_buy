@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,27 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('profile.update');
 
     Route::resource('tasks', \App\Http\Controllers\TaskController::class);
+
+    /* contact web routes*/
+
+    
+
+    Route::get('contacts/all',  [ContactController::class , 'indexPaginate'])->name('contact.list.view');
+
+    Route::get('contacts',  [ContactController::class , 'show'])->name('getAllCustomerContacts');
+
+    Route::get('contacts/{id}',  [ContactController::class , 'index'])->name('contact.index');
+    
+    Route::get('contacts/isblacklisted/{contact_number}',  [ContactController::class , 'isBlacklisted'])->name('contact.isBlacklisted');
+    
+    Route::post('contacts',  [ContactController::class , 'store'])->name('contact.store');
+    
+    Route::put('contacts/edit/{id}',  [ContactController::class , 'edit'])->name('contact.edit');
+    
+    Route::get('contacts/delete/{id}', [ContactController::class , 'destroy'])->name('contact.delete');
+    
+    Route::get('contacts/blacklist/{contact}',  [ContactController::class , 'blacklist'])->name('contact.blacklist');
+
 });
 
 require __DIR__.'/auth.php';

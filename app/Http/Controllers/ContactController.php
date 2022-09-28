@@ -11,7 +11,17 @@ class ContactController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
+
+
+    public function indexPaginate()
+    {
+        $contacts = Contact::paginate();
+
+        return view('contactlist', compact('contacts'));
+    }
+
     public function index($id)
     {
 
@@ -77,26 +87,9 @@ class ContactController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        if (Contact::where('id', $id)->exists()) {
+        //$contacts = Contact::paginate();
 
-            $contact = Contact::find($id);
-
-            $contact->contact_number = is_null($request->contact_number) ? $contact->contact_number : $request->contact_number;
-      
-            $contact->is_whitelisted = is_null($request->is_whitelisted) ? $contact->is_whitelisted : $request->is_whitelisted;
-
-            $contact->save();
-
-            return response()->json([
-                "message" => "customer number records updated successfully.",
-                "data" => $contact
-            ], 200);
-        } else {
-            return response()->json([
-                "message" => "customer contact not found."
-            ], 404);
-
-        }
+        return view('editcontact', compact('contacts'));
     }
 
     /**
