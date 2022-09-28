@@ -44,7 +44,9 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::post('contacts',  [ContactController::class , 'store'])->name('contact.store');
     
-    Route::put('contacts/edit/{id}',  [ContactController::class , 'edit'])->name('contact.edit');
+    Route::get('contacts/edit/{id}',  [ContactController::class , 'edit'])->name('contact.edit');
+
+    Route::put('contacts/update/{id}',  [ContactController::class , 'update'])->name('contact.update');
     
     Route::get('contacts/delete/{id}', [ContactController::class , 'destroy'])->name('contact.delete');
     
