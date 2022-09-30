@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
+
             {{ __('Add Number') }}
         </h2>
     </x-slot>
@@ -16,11 +16,11 @@
                     <form action="{{ route('contact.store') }}" method="post">
                     @csrf
                         <label for="">Number:</label>
-                        <input type="text" name="contact_number" placeholder="Enter Phone Number">
+                        <input type="number" name="contact_number" placeholder="Enter Phone Number" required>
                         <br>
                         <br>
                         <label for="">Status:</label>
-                        
+
 
                         <select name="is_whitelisted" id="">
                             <option value="1">Whitelist</option>
