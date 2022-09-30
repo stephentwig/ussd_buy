@@ -11,7 +11,7 @@ class ContactController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
+     *
      */
 
 
@@ -19,7 +19,7 @@ class ContactController extends Controller
     {
         $contacts = Contact::paginate();
 
-        return view('contactlist', compact('contacts'));
+        return view('contacts.list', compact('contacts'));
     }
 
     public function index($id)
@@ -39,7 +39,7 @@ class ContactController extends Controller
 
         }
 
-       
+
     }
 
     /**
@@ -57,7 +57,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        
+
         return redirect()->route('contact.list.view');
     }
 
@@ -70,7 +70,7 @@ class ContactController extends Controller
     public function show(Contact $contact)
     {
         $contact = Contact::get();
-       
+
 
         return response()->json([
             "data" => $contact
@@ -89,7 +89,7 @@ class ContactController extends Controller
         $contact = Contact::find($id);
         //$contacts = Contact::paginate();
 
-        return view('editcontact', compact('contact'));
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
@@ -101,14 +101,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-        
+
+
         if (Contact::where('id', $id)->exists()) {
 
             $contact = Contact::find($id);
 
             $contact->contact_number = is_null($request->contact_number) ? $contact->contact_number : $request->contact_number;
- 
+
             $contact->is_whitelisted = is_null($request->is_whitelisted) ? $contact->is_whitelisted : $request->is_whitelisted;
 
             $contact->save();
@@ -146,12 +146,12 @@ class ContactController extends Controller
     }
 
     public function isBlacklisted($contact_number) {
-       
+
         if (Contact::where('contact_number', $contact_number)->exists()) {
 
             $contact = Contact::where('contact_number', $contact_number)->get()->first();
-            
-            
+
+
             return response()->json([
                 "contact_number" => $contact->contact_number,
                 "status_code" => 1,
@@ -172,7 +172,7 @@ class ContactController extends Controller
 
 
     public function blacklist(Request $request, $id) {
-        
+
         if (Contact::where('id', $id)->exists()) {
             $contact = Contact::find($id);
 
