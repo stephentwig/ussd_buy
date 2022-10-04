@@ -10,6 +10,13 @@
 ## About USSD Buy Portal - Interview Task
 
 -   A simple CRUD Application for adding numbers and whitelisting/blacklisting them.
+- Screenshots of the portal:
+- List Numbers
+(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/list.PNG)
+- Create
+(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/create_dashboard.PNG)
+- Edit
+(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/edit.PNG)
 
 ## About Laravel
 
