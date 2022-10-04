@@ -50,6 +50,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'contact_number' => 'required|string|max:14',
+            'is_whitelisted' => 'required|string|max:1',
+
+        ]);
+
         $contact = new Contact;
 
         $contact->contact_number = $request->contact_number;
@@ -101,7 +108,11 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'contact_number' => 'required|string|max:14',
+            'is_whitelisted' => 'required|string|max:1',
 
+        ]);
 
         if (Contact::where('id', $id)->exists()) {
 
