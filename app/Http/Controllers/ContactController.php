@@ -53,8 +53,6 @@ class ContactController extends Controller
 
         $request->validate([
             'contact_number' => 'required|string|max:14',
-            'is_whitelisted' => 'required|string|max:1',
-
         ]);
 
         $contact = new Contact;
@@ -109,9 +107,7 @@ class ContactController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'contact_number' => 'required|string|max:14',
-            'is_whitelisted' => 'required|string|max:1',
-
+            'contact_number' => 'required|string|max:14'
         ]);
 
         if (Contact::where('id', $id)->exists()) {
