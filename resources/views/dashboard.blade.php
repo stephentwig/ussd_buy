@@ -13,6 +13,7 @@
                     You're logged in!
                     <br>
                     <br>
+                    <x-validation-errors />
                     <form action="{{ route('contact.store') }}" method="post">
                     @csrf
                         <label for="">Number:</label>

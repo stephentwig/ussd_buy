@@ -13,6 +13,7 @@
 
                     <br>
                     <br>
+                    <x-validation-errors />
                     <form action="{{ route('contact.update', $contact->id) }}" method="post">
                         @method('PUT')
                         @csrf
