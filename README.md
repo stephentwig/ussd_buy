@@ -12,11 +12,11 @@
 -   A simple CRUD Application for adding numbers and whitelisting/blacklisting them.
 - Screenshots of the portal:
 - List Numbers
-(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/list.PNG)
+![Picture of the list page ](https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/list.PNG)
 - Create
-(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/create_dashboard.PNG)
+![Picture of the create number page ](https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/create_dashboard.PNG)
 - Edit
-(https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/edit.PNG)
+![Picture of the edit number page ](https://raw.githubusercontent.com/stephentwig/ussd_buy/main/public/img/edit.PNG)
 
 ## About Laravel
 
